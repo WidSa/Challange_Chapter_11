@@ -1,20 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 export const buttonSlice = createSlice({
-  name: "button",
+  name: 'button',
   initialState: {
-    loading: false,
+    loading: false
   },
   reducers: {
     loadButton: (state) => {
-      state.loading = true;
+      state.loading = true
     },
     finishLoad: (state) => {
-      state.loading = false;
-    },
-  },
-});
+      state.loading = false
+    }
+  }
+})
 
-export const { loadButton, finishLoad } = buttonSlice.actions;
+export const { loadButton, finishLoad } = buttonSlice.actions
 
-export default buttonSlice.reducer;
+export default buttonSlice.reducer

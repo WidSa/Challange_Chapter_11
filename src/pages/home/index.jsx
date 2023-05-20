@@ -1,22 +1,22 @@
-import { Container } from "react-bootstrap";
-import { useRouter } from "next/router";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../services/firebase";
-import Head from "next/head";
-import Layout from "@/components/layout";
-import Link from "next/link";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { Container } from 'react-bootstrap'
+import { useRouter } from 'next/router'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../../services/firebase'
+import Head from 'next/head'
+import Layout from '@/components/layout'
+import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
-export default function Home() {
-  const router = useRouter();
-  const user = useSelector((state) => state.user);
+export default function Home () {
+  const router = useRouter()
+  const user = useSelector((state) => state.user)
 
   useEffect(() => {
     if (!user.user) {
-      router.push("/login");
+      router.push('/login')
     }
-  }, [user, router]);
+  }, [user, router])
 
   return (
     <Layout>
@@ -35,5 +35,5 @@ export default function Home() {
         </Container>
       </div>
     </Layout>
-  );
+  )
 }

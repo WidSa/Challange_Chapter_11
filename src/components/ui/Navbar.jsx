@@ -1,35 +1,36 @@
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { auth } from "../../services/firebase";
-import { signOut } from "firebase/auth";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "@/store/userSlice";
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import { auth } from '../../services/firebase'
+import { signOut } from 'firebase/auth'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '@/store/userSlice'
+import Image from 'next/image'
 
-export default function NavbarTop() {
-  const user = useSelector((state) => state.user.user);
-  const router = useRouter();
-  const dispatch = useDispatch();
+export default function NavbarTop () {
+  const user = useSelector((state) => state.user.user)
+  const router = useRouter()
+  const dispatch = useDispatch()
 
   const handleLogout = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     signOut(auth)
       .then(() => {
-        console.log("you are logged out");
-        dispatch(logout());
-        router.push("/");
+        console.log('you are logged out')
+        dispatch(logout())
+        router.push('/')
       })
       .catch((error) => {
-        console.log(error.message);
-      });
-  };
+        console.log(error.message)
+      })
+  }
   return (
     <Navbar expand="lg" sticky="top" className="navbar-dark text-warning shadow-lg">
       <div className="container-fluid p-1 ms-5 me-5">
-        <Navbar.Brand href="/home" className="text-warning d-flex align-content-center">
-          <img alt="" src="logo.svg" className="d-inline-block align-top" /> <span className="fw-bold">The Game</span>
+        <Navbar.Brand href="/" className="text-warning d-flex align-content-center">
+          <Image alt="logo" width={25} height={25} loading="lazy" src="/logo.svg" className="d-inline-block align-top" /> <span className="fw-bold">The Game</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -41,7 +42,8 @@ export default function NavbarTop() {
               Game List
             </Link>
           </Nav>
-          {!user ? (
+          {!user
+            ? (
             <div>
               <Link href="/login" className="me-3 link-light text-warning">
                 Log in
@@ -50,7 +52,8 @@ export default function NavbarTop() {
                 Register
               </Link>
             </div>
-          ) : (
+              )
+            : (
             <NavDropdown title={user.email} id="basic-nav-dropdown">
               <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -58,9 +61,9 @@ export default function NavbarTop() {
                 Logout
               </NavDropdown.Item>
             </NavDropdown>
-          )}
+              )}
         </Navbar.Collapse>
       </div>
     </Navbar>
-  );
+  )
 }

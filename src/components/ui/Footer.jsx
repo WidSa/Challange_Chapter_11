@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-export default function Footer() {
+export default function Footer () {
   return (
     <footer id="footer" className="shadow-lg">
       {/* <div className="text-light container-fluid ps-5 pe-5 m-0">
@@ -14,11 +14,11 @@ export default function Footer() {
           <div className="col-lg-5 d-flex justify-content-around">
             <Link href="/privacy-policy" className="text-decoration-none link-warning text-light">
               Privacy Policy
-            </Link>{" "}
+            </Link>{' '}
             |
             <Link href="/toc" className="text-decoration-none link-warning text-light">
               Terms of Services
-            </Link>{" "}
+            </Link>{' '}
             |
             <Link href="/coc" className="text-decoration-none link-warning text-light">
               Code of Conduct
@@ -27,5 +27,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

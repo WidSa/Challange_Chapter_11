@@ -1,10 +1,10 @@
-import { Container, Row } from "react-bootstrap";
-import Link from "next/link";
-import RegisterForm from "../../components/forms/RegisterForm";
-import Head from "next/head";
-import Layout from "@/components/layout";
+import { Container, Row } from 'react-bootstrap'
+import Link from 'next/link'
+import RegisterForm from '../../components/forms/RegisterForm'
+import Head from 'next/head'
+import Layout from '@/components/layout'
 
-export default function Register() {
+export default function Register () {
   return (
     <Layout>
       <Head>
@@ -15,10 +15,10 @@ export default function Register() {
           <Row>
             <div className="p-5 col-lg bg-left">
               <Container className="d-flex flex-column justify-content-center align-content-center min-vh-100 text-center text-light">
-                <h1>Don't have an account?</h1>
+                <h1>Don&rsquo;t have an account?</h1>
                 <p>
                   <Link href="#register" className="text-warning link-light">
-                    Register{" "}
+                    Register{' '}
                   </Link>
                   to access all the features
                 </p>
@@ -30,7 +30,7 @@ export default function Register() {
                 <p className="text-center">
                   Already a member?
                   <Link href="/login" className="text-decoration-none text-warning link-light">
-                    {" "}
+                    {' '}
                     Login
                   </Link>
                 </p>
@@ -42,5 +42,5 @@ export default function Register() {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
