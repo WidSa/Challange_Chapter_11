@@ -1,8 +1,8 @@
 import React from 'react'
-import facebook from '../../public/facebook.svg'
-import twitter from '../../public/twitter.svg'
-import youtube from '../../public/Vector.png'
-import twitch from '../../public/twitch.svg'
+// import facebook from '/facebook.svg'
+// import twitter from '/twitter.svg'
+// import youtube from '/Vector.png'
+// import twitch from '/twitch.svg'
 import Image from 'next/image'
 
 export default function Footers () {
@@ -27,22 +27,22 @@ export default function Footers () {
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link"
-                        ><Image src={facebook} alt=""
+                        ><Image src={'/facebook.svg'} width={9} height={18} alt=""
                             /></a>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link"
-                        ><Image src={twitter} alt=""
+                        ><Image src={'/twitter.svg'} width={21} height={16} alt=""
                             /></a>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link"
-                        ><Image src={youtube} alt=""
+                        ><Image src={'/Vector.png'} width={19} height={18} alt=""
                             /></a>
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link"
-                        ><Image src={twitch} alt=""
+                        ><Image src={'/twitch.svg'} width={19} height={18} alt=""
                             /></a>
                     </li>
                 </ul>

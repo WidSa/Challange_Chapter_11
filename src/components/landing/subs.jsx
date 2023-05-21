@@ -1,5 +1,5 @@
 import React from 'react'
-import tulang from '../../public/skull.png'
+// import tulang from '/skull.png'
 import { Container, Row, Button, Form } from 'react-bootstrap'
 import Footers from './footer'
 // import Head from "next/head";
@@ -15,7 +15,7 @@ export default function Subs () {
                 <Container className='align-item-center justify-content-center'>
                     <Row className='d-flex align-item-center justify-content-center'>
                         <div className='col-sm-5'>
-                            <Image src={tulang} alt="" />
+                            <Image src={'/skull.png'} width={400} height={650} alt="" />
                         </div>
                         <div className="subscribe col-sm-6 text-white">
                             <h3 className="mt-5">Want to stay in <br /> touch?</h3>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Carousel, Container, Row } from 'react-bootstrap'
-import image1 from '../../public/rockpaperstrategy-1600.jpg'
-import image2 from '../../public/congkak.jpg'
-import image3 from '../../public/gasing.jpg'
+// import image1 from '/rockpaperstrategy-1600.jpg'
+// import image2 from '/congkak.jpg'
+// import image3 from '/gasing.jpg'
 import Image from 'next/image'
 
 export default function Gallery () {
@@ -22,7 +22,7 @@ export default function Gallery () {
                     <Container>
                         <Row>
                             <div className="col-sm-5 gallery-text pt-5 mt-5 text-white">
-                                <h3>Whats so special?</h3>
+                                <h3>What's so special?</h3>
                                 <h1 className="fw-bold text-uppercase">the games</h1>
                             </div>
                             <div className="col-sm-7 d-flex pt-5 mt-5">
@@ -30,7 +30,7 @@ export default function Gallery () {
                                     <Carousel.Item>
                                         <Image
                                             className="d-block w-100 "
-                                            src={image1}
+                                            src={'/rockpaperstrategy-1600.jpg'}
                                             width={858}
                                             height={477}
                                             alt="First slide"
@@ -43,7 +43,7 @@ export default function Gallery () {
                                     <Carousel.Item>
                                         <Image
                                             className="d-block w-100"
-                                            src={image2}
+                                            src={'/congkak.jpg'}
                                             width={858}
                                             height={477}
                                             alt="Second slide"
@@ -57,7 +57,7 @@ export default function Gallery () {
                                     <Carousel.Item>
                                         <Image
                                             className="d-block w-100"
-                                            src={image3}
+                                            src={'/gasing.jpg'}
                                             width={858}
                                             height={477}
                                             alt="Third slide"
@@ -82,5 +82,3 @@ export default function Gallery () {
 
   )
 }
-
-// render(<ControlledCarousel />);

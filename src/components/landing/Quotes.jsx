@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button, Container, Row, Card } from 'react-bootstrap'
-import evant from '../../public/evan-lahti.jpg'
-import jada from '../../public/jada-griffin.jpg'
-import aaron from '../../public/aaron-williams.jpg'
+// import evant from '/evan-lahti.jpg'
+// import jada from '/jada-griffin.jpg'
+// import aaron from '/aaron-williams.jpg'
 // import Head from "next/head";
 import Image from 'next/image'
 
@@ -46,7 +46,7 @@ export default function Quotes () {
                     <div className="d-flex">
                       <div className="Image-container ">
                         <Image
-                          src={evant}
+                          src={'/evan-lahti.jpg'}
                           width={50}
                           height={50}
                           alt=""
@@ -81,7 +81,7 @@ export default function Quotes () {
                     <div className="d-flex">
                       <div className="Image-container">
                         <Image
-                          src={jada}
+                          src={'/jada-griffin.jpg'}
                           width={50}
                           height={50}
                           alt=""
@@ -117,7 +117,7 @@ export default function Quotes () {
                     <div className="d-flex">
                       <div className="Image-container">
                         <Image
-                          src={aaron}
+                          src={'/aaron-williams.jpg'}
                           width={50}
                           height={50}
                           alt=""

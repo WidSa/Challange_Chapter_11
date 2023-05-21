@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import logo from '../../public/logo.png'
+// import logo from '/logo.png'
 // import Head from "next/head";
 import Image from 'next/image'
 import { auth } from '../../services/firebase'
@@ -40,7 +40,7 @@ export default function NavigationBar () {
             <Navbar variant="dark" className='transparent-navbar text-warning py-3' sticky="top">
                 <div className="container-fluid p-1 ms-5 me-5">
                     <Navbar.Brand href="/home" className="text-warning d-flex align-content-center">
-                        <Image alt="" src={logo} width={30} height={30} className="d-inline-block align-top" /> <span className="fw-bold">The Game</span>
+                        <Image alt="" src={'/logo.png'} width={30} height={30} className="d-inline-block align-top" /> <span className="fw-bold">The Game</span>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

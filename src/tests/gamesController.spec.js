@@ -1,4 +1,4 @@
-const base = require('../controllers/indexController')
+const games = require('../controllers/gamesController')
 const mockRequest = (body = {}) => ({ body })
 const mockResponse = () => {
   const res = {}
@@ -13,7 +13,7 @@ describe('index function', () => {
       const req = mockRequest()
       const res = mockResponse()
 
-      base.index(req, res)
+      games.index(req, res)
       expect(res.status).toBeCalledWith(200)
       expect(res.json).toBeCalledWith({
         status: true,
@@ -30,7 +30,7 @@ describe('bio function', () => {
       const req = mockRequest({ name: 'Agung' })
       const res = mockResponse()
 
-      base.bio(req, res)
+      games.bio(req, res)
       expect(res.status).toBeCalledWith(200)
       expect(res.json).toBeCalledWith({
         status: true,

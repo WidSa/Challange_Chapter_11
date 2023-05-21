@@ -5,9 +5,9 @@ import { auth } from '../../services/firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Nav, Navbar, NavItem, Row, Col } from 'react-bootstrap'
 
-import back from '../../public/back.png'
-import logo from '../../public/logo1.png'
-import refresh from '../../public/refresh.png'
+// import back from '../../public/back.png'
+// import logo from '../../public/logo1.png'
+// import refresh from '../../public/refresh.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -118,11 +118,11 @@ export default function GamePage () {
             <Nav className="me-auto d-flex nav-content">
               <NavItem className="games p-4 ms-2 d-flex" id="back">
                 <Link href="/profile">
-                  <Image src={back} alt="" />
+                  <Image src={'/back.png'} width={50} height={50} alt="" />
                 </Link>
               </NavItem>
               <NavItem className="logo p-2 ms-2 d-flex" id="logo">
-                <Image src={logo} alt="" />
+                <Image src={'/logo1.png'} width={80} height={80} alt="" />
               </NavItem>
               <NavItem className="headers p-4 ms-2 d-flex">
                 <h1>ROCK PAPER SCISSORS</h1>
@@ -224,7 +224,7 @@ export default function GamePage () {
 
               <div className="refresh">
                 <div className="col-md-6 offset-md-3">
-                  <Image src={refresh} alt="" className="refresh-img" onClick={handleReload} />
+                  <Image src={'/refresh.png'} width={70} height={70} alt="" className="refresh-img" onClick={handleReload} />
                 </div>
               </div>
             </Container>
