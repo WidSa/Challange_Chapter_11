@@ -4,6 +4,8 @@ import '../styles/Home.css'
 import '../styles/Register.css'
 import '../styles/Media.css'
 import '../styles/Landing.css'
+import '../styles/GameList.css'
+import '../styles/ItemCard.css'
 import { Provider } from 'react-redux'
 import store from '../store/store'
 
