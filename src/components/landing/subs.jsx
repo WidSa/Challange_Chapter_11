@@ -24,7 +24,7 @@ export default function Subs () {
                                 In order to start receiving our news, all you have
                                 to do is enter your email address. Everything else
                                 will be taken care of by us. We will send you emails
-                                containing information about game. We don't spam.
+                                containing information about game. We don`t spam.
                             </div>
                             <Form className="row mt-5">
                                 <div className="form-group col">

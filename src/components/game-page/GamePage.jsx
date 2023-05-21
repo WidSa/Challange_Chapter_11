@@ -4,10 +4,8 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../../services/firebase'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container, Nav, Navbar, NavItem, Row, Col } from 'react-bootstrap'
+import AudioPlayer2 from '../media/AudioPlayer2'
 
-// import back from '../../public/back.png'
-// import logo from '../../public/logo1.png'
-// import refresh from '../../public/refresh.png'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -79,7 +77,7 @@ export default function GamePage () {
         dispatch(incrementLose())
       }
     }
-  }, [pick, computerPicks])
+  }, [pick, computerPicks, dispatch])
 
   useEffect(() => {
     const replace = document.querySelector('.replace')
@@ -229,6 +227,7 @@ export default function GamePage () {
               </div>
             </Container>
           </div>
+          <AudioPlayer2 />
         </>
   )
 }

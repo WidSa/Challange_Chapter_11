@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react'
 import { Carousel, Container, Row } from 'react-bootstrap'
 // import image1 from '/rockpaperstrategy-1600.jpg'
@@ -82,3 +83,5 @@ export default function Gallery () {
 
   )
 }
+
+// render(<ControlledCarousel />);

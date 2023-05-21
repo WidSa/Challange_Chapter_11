@@ -1,6 +1,7 @@
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import Image from 'react-bootstrap/Image'
 import { auth } from '../../services/firebase'
 import { signOut } from 'firebase/auth'
 import { useRouter } from 'next/router'
@@ -29,7 +30,7 @@ export default function NavbarTop () {
     <Navbar expand="lg" sticky="top" className="navbar-dark text-warning shadow-lg">
       <div className="container-fluid p-1 ms-5 me-5">
         <Navbar.Brand href="/home" className="text-warning d-flex align-content-center">
-          <img alt="" src="logo.svg" className="d-inline-block align-top" /> <span className="fw-bold">The Game</span>
+          <Image alt="" src="logo.svg" className="d-inline-block align-top" /> <span className="fw-bold">The Game</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

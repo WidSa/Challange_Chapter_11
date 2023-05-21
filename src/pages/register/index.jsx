@@ -2,10 +2,11 @@ import { Container, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import RegisterForm from '../../components/forms/RegisterForm'
 import Head from 'next/head'
+import Layout from '@/components/layout'
 
 export default function Register () {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Create an Account</title>
       </Head>
@@ -14,7 +15,7 @@ export default function Register () {
           <Row>
             <div className="p-5 col-lg bg-left">
               <Container className="d-flex flex-column justify-content-center align-content-center min-vh-100 text-center text-light">
-                <h1>Don't have an account?</h1>
+                <h1>Don&rsquo;t have an account?</h1>
                 <p>
                   <Link href="#register" className="text-warning link-light">
                     Register{' '}
@@ -33,12 +34,13 @@ export default function Register () {
                     Login
                   </Link>
                 </p>
+
                 <RegisterForm />
               </Container>
             </div>
           </Row>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
