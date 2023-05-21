@@ -1,7 +1,7 @@
 .gl-wrapper {
   min-height: 100vh;
   width: 100%;
-  background-image: url("/public/temple-construction.png");
+  background-image: url("../../public/temple-construction.png");
   background-size: cover;
 }
 
@@ -81,3 +81,5 @@
     grid-template-columns: 1fr;
   }
 }
+
+  

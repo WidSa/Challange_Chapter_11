@@ -11,16 +11,16 @@ export default function ItemCard ({
   height
 }) {
   return (
-    <div className="item-card-wrapper">
-      <Link href={to} className="card-box-wrapper">
-        <div className="card-box">
-          <Image src={image} alt="" width={width} height={height} />
+    <div className='item-card-wrapper'>
+      <Link href={to} className='card-box-wrapper'>
+        <div className='card-box'>
+          <Image src={image} alt='' width={width} height={height} />
           {played && (
-            <div className="card-box-overlay">You Played This Game</div>
+            <div className='card-box-overlay'>You Played This Game</div>
           )}
         </div>
       </Link>
-      <Link href="/" className="card-title-wrapper">
+      <Link href='/' className='card-title-wrapper'>
         <p className={`card-title ${status}`}>{title}</p>
       </Link>
     </div>

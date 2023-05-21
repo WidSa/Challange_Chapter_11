@@ -1,13 +1,13 @@
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Form, Button, Container, Alert } from 'react-bootstrap'
 import { auth } from '../../services/firebase'
 import { useRouter } from 'next/router'
 import { BsGoogle, BsFacebook } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginSuccess, loginWithGoogleSuccess } from '@/store/userSlice'
+import { loginSuccess, loginWithGoogleSuccess } from '../../store/userSlice'
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, FacebookAuthProvider, onAuthStateChanged } from 'firebase/auth'
 import Link from 'next/link'
-import { finishLoad, loadButton } from '@/store/buttonSlice'
+import { finishLoad, loadButton } from '../../store/buttonSlice'
 
 export default function RegisterForm () {
   const emailRef = useRef()

@@ -1,11 +1,11 @@
 import { sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '../../services/firebase'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { useRouter } from 'next/router'
 import { Container, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import Head from 'next/head'
-import Layout from '@/components/layout'
+import Layout from '../../components/layout'
 import ResetPassForm from '../../components/forms/ResetPassForm'
 
 export default function ForgotPassword () {
