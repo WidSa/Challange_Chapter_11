@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '@/styles/globals.css'
 import '@/styles/Home.css'
 import '../styles/Register.css'
+import '@/styles/Profile.css'
 // import "@/styles/Login.css";
 // import "../styles/GameList.css";
 // import "../styles/ItemCard.css";

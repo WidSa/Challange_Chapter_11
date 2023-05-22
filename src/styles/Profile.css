@@ -1,0 +1,15 @@
+.Profile-bg-image{
+    background-image: radial-gradient(circle, rgba(0, 212, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(0, 0, 0, 0.8016456582633054) 86%), url(/bg_image.png) !important;
+    background-position: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: content-box;
+    overscroll-behavior-x: contain;
+    overflow-x: auto;
+    height: 100vh;
+}
+
+.rounded {
+    width: 56px;
+    height: 56px;
+}
