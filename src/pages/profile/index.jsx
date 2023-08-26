@@ -1,13 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { Card, Row, Col, Table, Container, Image, Button } from 'react-bootstrap'
+import React, { useEffect, useState, useRef } from 'react'
+import { Card, Nav, Navbar, NavbarBrand, NavItem, Row, Col, Table, Container } from 'react-bootstrap'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from '../../services/firebase'
+import { auth, db } from '../../services/firebase'
+import { set, ref, onValue } from 'firebase/database'
+import { useSelector } from 'react-redux'
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout from '@/components/layout'
 
 export default function Profile () {
   const [name, setName] = useState('')
+  const win = useSelector((state) => state.gameInfo.win)
+  const round = useSelector((state) => state.gameInfo.round)
+
+  useEffect(() => {
+    const dbRef = ref(db, 'posts')
+    onValue(dbRef, (snapshot) => {
+      const newPosts = []
+
+      snapshot.forEach((childSnapshot) => {
+        newPosts.push({
+          key: childSnapshot.key,
+          match: childSnapshot.val().match,
+          result: childSnapshot.val().result
+        })
+      })
+
+      console.log(newPosts)
+    })
+  }, [])
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -19,79 +39,83 @@ export default function Profile () {
     })
   }, [])
 
-  return (
-        <>
-            <Layout>
-            <Head>
-                <title>Profile Page</title>
-            </Head>
-            <div className="Profile-bg-image">
-                <Container className="mt-5 mb-5">
-                    <Row>
-                        <Col md={3}>
-                            <Card className="mb-2 square rounded-circle" style={{ width: '11rem' }}>
-                                <Card.Img cls variant="top" src="Default_pfp.png"/>                                </Card>
-                        </Col>
-                        <Col md={6}>
-                            <div className="mt-3 ms-2" style={{ color: 'whitesmoke', textAlign: 'start' }}>
-                                <h2 className="ms-4">{name}</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, reprehenderit?</p>
-                            </div>
-                        </Col>
-                        <Col md={3}>
-                            <h1 style={{ color: 'orange' }}>PROFILE</h1>
-                            <p style={{ color: 'white' }}>Share your Profile: </p>
-                            <div style={{ justifyContent: 'space-between', display: 'flex' }}>
-                                <Image className='thumbnail' alt='' src='facebook-48.png'/>
-                                <Image className='thumbnail' alt='' src='twitter-48.png'/>
-                                <Image className='thumbnail' alt='' src='instagram-48.png'/>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
+  const createPost = () => {
+    const newPostRef = ref(db, 'posts').push()
+    const postData = {
+      match: round,
+      result: win
+    }
 
-                <Container className="mt-5 mb-5" style={{ width: '1150px', height: '400px' }}>
-                    <div style={{ backgroundColor: 'gray', height: '370px' }}>
-                        <Row className='mb-3'>
-                            <Col md={3}>
-                                <h2 style={{ color: 'orange' }}>Performance</h2>
-                                <Table striped bordered hover size="sm" style={{ color: 'whitesmoke', textAlign: 'center' }}>
-                                    <thead>
-                                        <tr>
-                                            <th>Match</th>
-                                            <th>Win</th>
-                                            <th>Lose</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                        </tr>
-                                    </tbody>
-                                </Table>
-                            </Col>
-                            <Col md={{ span: 7, offset: 2 }} style={{ backgroundColor: 'white' }}>
-                                <h2 style={{ color: 'orange' }}>History</h2>
-                            </Col>
-                        </Row>
-                        <Row className='mt-3 mb-3'>
-                            <Col md={3}>
-                                <h2 style={{ color: 'orange' }}>Gemes</h2>
-                                <Image className='rounded' alt='' src='game-list-1.png'/>
-                            </Col>
-                        </Row>
-                        <Row className='mt-3 mb-3'>
-                            <Col md={3} style={{ color: 'orange' }}>
-                                <h2>E-certificat</h2>
-                                <p ><Button variant="light" style={{ color: 'orange' }}>Download</Button></p>
-                            </Col>
-                        </Row>
-                    </div>
-                </Container>
-            </div>
-            </Layout>
-        </>
+    set(createPost, newPostRef, postData)
+      .then(() => {
+        alert('Post Created Successfully')
+      })
+      .catch((error) => {
+        console.error('Error creating post:', error)
+      })
+  }
+
+  return (
+    <>
+      <Head>
+        <title>Profile Page</title>
+        <link rel="stylesheet" href="/styles/Profile.css"/>
+      </Head>
+      <div className="Profile-bg-image">
+        <Container className="mb-4">
+          <Navbar>
+            <NavbarBrand style={{ fontSize: '1.5rem', color: 'whitesmoke' }}>
+              <Link href="/home">
+                <img src="previous.png" alt="previous" style={{ height: 25, width: 25 }}/>
+                Back
+              </Link>
+            </NavbarBrand>
+            <Navbar.Collapse className="justify-content-end">
+              <Nav className="flex-column">
+                <NavItem>
+                  <Navbar.Text style={{ fontSize: '1rem', color: 'whitesmoke' }}>Hello, {name}</Navbar.Text>
+                </NavItem>
+                <NavItem>
+                  <Navbar.Text style={{ fontSize: '2rem', color: 'whitesmoke' }}>WELCOME BACK.</Navbar.Text>
+                </NavItem>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </Container>
+
+        <Container className="mt-4 mb-4">
+          <Card className="mb-2 square rounded-circle" style={{ width: '11rem' }}>
+            <Card.Img cls variant="top" src="Default_pfp.png"/>
+          </Card>
+
+          <div className="mt-3 ms-2" style={{ color: 'whitesmoke' }}>
+            <h3 className="ms-4">{name}</h3>
+          </div>
+        </Container>
+
+        <Container className="mt-4 mb-5">
+          <div style={{ backgroundColor: 'gray' }}>
+            <Row>
+              <Col md>
+                <Table striped bordered hover size="sm" style={{ color: 'whitesmoke', textAlign: 'center' }}>
+                  <thead>
+                    <tr>
+                      <th>GamePlayed</th>
+                      <th>Menang</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{round}</td>
+                      <td>{win}</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container>
+      </div>
+    </>
   )
 }
